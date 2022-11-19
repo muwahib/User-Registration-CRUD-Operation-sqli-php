@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background: grey;
+  background: grey; 
   font-family: Arial, Helvetica, sans-serif;
   max-width: 100%;
 }
@@ -165,15 +165,15 @@ input[type="submit"] {
         position: relative;
     }
     .flex-box1{
-       width: 50%;
+       width: 100%;
        position: absolute;
-       left: 10px;
+       left: 245px;
     }
     .flex-box2{
         width: 50%;
         position: absolute;
-        right: 170px;
-        top: -42px;
+        right: 380px;
+        top: 410px;
     }
 
     .table {

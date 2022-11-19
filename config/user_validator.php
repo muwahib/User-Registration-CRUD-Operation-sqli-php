@@ -25,7 +25,6 @@ class UserValidator {
         $this->validateUsername();
         $this->validateEmail();
         return $this->errors;
-
     }
 
     //-- a method to validate a username 
