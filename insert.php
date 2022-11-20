@@ -17,7 +17,7 @@ if (isset($_POST["username"]) && isset($_POST["email"])) {
     // Redirect
     if ($username != '' && $email != '') {
         //  To redirect form on a particular page
-        header("Location: indexed.php");
+        header("Location: indexed.php?msg=Data inserted Successfully");
     }else{
         echo "please fill all fields";
     }
@@ -26,3 +26,4 @@ if (isset($_POST["username"]) && isset($_POST["email"])) {
     //connection close
     mysqli_close($conn);
 }
+?>

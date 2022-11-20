@@ -20,9 +20,9 @@ $query = mysqli_query($conn,$delete);
 // Redirect
 if ($id != '') {
     //  To redirect form on a particular page
-    header("Location: indexed.php");
+    header("Location: indexed.php?msg=Data deleted Successfully");
 }else{
-    echo "";
+    echo "Failed:" . mysqli_error($conn);
 }
 
 ?>
