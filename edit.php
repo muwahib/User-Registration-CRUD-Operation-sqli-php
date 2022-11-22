@@ -10,42 +10,30 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         $sql ="SELECT * FROM `user_login` WHERE `id`='$id' LIMIT 1";
         $update = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($update);
-        // print_r($row);
     } else {
-        header("location: indexed.php");
-        
+        //header("location: index.php");   
     }
-    $id = $row['id'];
-    $username = $row['username'];
-    $email = $row['email'];
-
 }
 
+if(isset($_POST['update'])){
+ $id=$_POST['id'];
+ $username=$_POST['username'];
+ $email=$_POST['email'];
+ 
+ $sqlQuery="UPDATE `user_login` SET `username`='$username',`email`='$email' WHERE `id`='$id'";
 
-// updating data 
-if(isset($_POST)){
-    
-//database connection
-include('config/db_connection.php');
+ $result=mysqli_query($conn,$sqlQuery);
 
-//update data
-//query creation
-$sql = "UPDATE `user_login` SET `username`='$username',`email`='$email' WHERE `id`='$id'";
-
-$update = mysqli_query($conn,$sql);
-
-if($update){
-    header("location: edit.php");
-} else {
-    echo "failed: " . mysqli_error($conn);
+ if($result){
+  echo "DATA UPDATED";
+  header("location: index.php");
+ }else{
+  echo "DATA NOT UPDATED";
+ }
+ 
 }
-
-}
-
-
 
 ?>
-
 
 <html lang="en">
 
@@ -76,10 +64,10 @@ if($update){
           <div class="error">
             <?php echo $errors['email'] ?? '' ?>
           </div>
-          <input type="submit" value="submit">
+          <input type="submit" value="submit" name="update">
         </form>
         <?php }else{ 
-           echo"NOT AVAILABLE";
+          echo ("NO RECORD FOUND");
         }
             
         ?>

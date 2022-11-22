@@ -7,7 +7,7 @@ include('config/db_connection.php');
 $sql = "SELECT * FROM user_login ORDER BY id ASC";
 
 //query execution or gee queryga to database $connection
-$tablesql = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -29,6 +29,7 @@ $tablesql = mysqli_query($conn, $sql);
         <?php
         include "/xampp/htdocs/Login/insert.php";
         ?>
+          <input type="hidden" name="id" value="">
           <label>Username:</label>
           <input type="text" name="username" value="">
           <div class="error">
@@ -44,7 +45,9 @@ $tablesql = mysqli_query($conn, $sql);
         </form>
       </div>
     </div>
-
+  <?php
+  
+  ?>
 
     <div class="flex-box2">
       <div class="table flex-box">
@@ -59,11 +62,9 @@ $tablesql = mysqli_query($conn, $sql);
             </tr>
           </thead>
           <tbody>
-            
             <?php
-            
-            // read data of each row
-            while($row = mysqli_fetch_assoc($tablesql)){
+              // read data of each row
+              while($row = mysqli_fetch_assoc($result)){
             
               echo "<tr>
               <td>" . $row["id"] . "</td>
@@ -74,9 +75,9 @@ $tablesql = mysqli_query($conn, $sql);
               <a class='btn btn-danger btn-sm' href='/login/delete.php?id=$row[id]'>Delete</a>
               </td>
               </tr>";
-            }
-            mysqli_free_result($tablesql);
-           ?>
+              }
+              mysqli_free_result($result);
+            ?>
           </tbody>
         </table>
       </div>

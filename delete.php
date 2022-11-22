@@ -9,18 +9,18 @@ $id = $_GET['id'];
 
 $sql = "DELETE FROM `user_login` WHERE `id`='$id'";
 
-$delete = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
     
 }
 
 // delete data from the form
-$delete = "SELECT * from user_login";
-$query = mysqli_query($conn,$delete);
+$sql = "SELECT * from user_login";
+$result = mysqli_query($conn,$sql);
 
 // Redirect
 if ($id != '') {
     //  To redirect form on a particular page
-    header("Location: indexed.php?msg=Data deleted Successfully");
+    header("Location: index.php?msg=Data deleted Successfully");
 }else{
     echo "Failed:" . mysqli_error($conn);
 }
