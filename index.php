@@ -71,8 +71,8 @@ $result = mysqli_query($conn, $sql);
               <td>" . $row["username"] . "</td>
               <td>" . $row["email"] . "</td>
               <td>
-              <a class='btn btn-primary btn-sm' href='/Login/edit.php?id=$row[id]'>Edit</a>
-              <a class='btn btn-danger btn-sm' href='/login/delete.php?id=$row[id]'>Delete</a>
+              <a class='btn btn-primary btn-sm' href='edit.php?id=$row[id]'>Edit</a>
+              <a class='btn btn-danger btn-sm' href='delete.php?id=$row[id]'>Delete</a>
               </td>
               </tr>";
               }
